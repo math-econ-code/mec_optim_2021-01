@@ -103,18 +103,18 @@ RUN cd ~ && \
     dnf clean all
 
 
-RUN cd ~ && mkdir ot_libs
+# RUN cd ~ && mkdir ot_libs
 
 # PyMongeAmpere 
-RUN cd ~/ot_libs && \
-    git clone https://github.com/mrgt/MongeAmpere.git && \
-    git clone https://github.com/mrgt/PyMongeAmpere.git && \
-    cd PyMongeAmpere && git submodule update --init --recursive && \
-    mkdir build && cd build && \
-    cmake -DCGAL_DIR=/usr/lib64/cmake/CGAL .. && \
-    make -j1
-
-
+# RUN cd ~/ot_libs && \
+#    git clone https://github.com/mrgt/MongeAmpere.git && \
+#    git clone https://github.com/mrgt/PyMongeAmpere.git && \
+#    cd PyMongeAmpere && git submodule update --init --recursive && \
+#    mkdir build && cd build && \
+#    cmake -DCGAL_DIR=/usr/lib64/cmake/CGAL .. && \
+#    make -j1
+#
+#
 # Siconos
 #RUN cd ~/ot_libs && \
 #    git clone https://github.com/siconos/siconos.git && \
@@ -123,11 +123,12 @@ RUN cd ~/ot_libs && \
 #    cmake .. && \
 #    make -j1 && \
 #    make install
-
+#
 # Siconos examples
 #RUN cd ~/ot_libs && \
 #    git clone https://github.com/siconos/siconos-tutorials.git 
 
+RUN pip install pysdot
 
 RUN mkdir -p /src/notebooks && \
     cd src/notebooks && \
@@ -163,7 +164,7 @@ RUN cd /opt/gurobi/linux64/R && \
 
 
 # Install NYU's floating license
-#RUN cd /opt/gurobi && \
+# RUN cd /opt/gurobi && \
 #	echo "TOKENSERVER=10.130.0.234" > gurobi.lic
 #    # cd .. && cd .. && \
     
